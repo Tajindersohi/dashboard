@@ -12,16 +12,15 @@ export function DemoPageContent({ pathname, navigate }) {
     <Box
       sx={{
         py: 4,
-        display: 'flex',
-        flexDirection: 'column',
+        // display: 'flex',
+          overflow:'scroll'
+        // flexDirection: 'column',
       }}
     >
-      <Typography>
         {pathname == '/dashboard' ? <Dashboard/>
             :
         <p>Dashboard content for {pathname}</p>
          } 
-      </Typography>
       {pathname.startsWith('/orders') ? (
         <Stack direction="row" spacing={1} sx={{ pt: 1 }}>
           <Button

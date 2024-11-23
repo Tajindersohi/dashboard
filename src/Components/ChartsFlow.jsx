@@ -8,7 +8,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import { Box, Typography, Select, MenuItem } from "@mui/material";
+import { Box, Typography, Select, MenuItem, Paper } from "@mui/material";
 
 const data = [
   { name: "5", value: 4000 },
@@ -45,8 +45,8 @@ const ActivityChart = () => {
 
   return (
     <Box
+    component = {Paper}
       sx={{
-        backgroundColor: "#202021",
         borderRadius: "15px",
         padding: 3,
       }}
