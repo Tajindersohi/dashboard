@@ -116,7 +116,7 @@ const Dashboard = () => {
                 </Box>
               </Grid>
               <Grid item xs={12}>
-                <Box  component={Paper} sx={{height:"400px",overflowY:"scroll", borderRadius: "15px", padding: 3 }}>
+                <Box  component={Paper} sx={{height:"400px", borderRadius: "15px", padding: 3 }}>
                   <Typography textAlign={'left'} variant="h6" gutterBottom>
                     Recent Orders
                   </Typography>
