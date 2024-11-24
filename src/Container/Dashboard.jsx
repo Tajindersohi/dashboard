@@ -8,7 +8,8 @@ import {
   ListItemText,
   Paper,
   Rating,
-  Avatar
+  Avatar,
+  createTheme
 } from "@mui/material";
 import {
   ArrowDropUp as ArrowDropUpIcon,
@@ -24,6 +25,19 @@ import MenuBookIcon from '@mui/icons-material/MenuBook';
 import ProgressBar from "../Components/ProgressBar";
 import TableComponent from "./Orders";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
+const theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1536,
+    },
+  },
+});
+
 
 const ordersDetails = [
   { title: "Total Orders", count: 75, profit: true, profitCount: 3, iconColor: "primary", iconBgColor: "#273266" },
@@ -46,24 +60,24 @@ const feedbacks = [
 
 const Dashboard = () => {
   return (
-    <Box sx={{ display: "flex", minHeight: "100vh", backgroundColor: "", color: "#fff", padding: 3 }}>
+    <Box theme={theme} sx={{minHeight: "100vh",maxWidth:'90% ',mx:2, backgroundColor: "", color: "#fff"}}>
       <Box sx={{ flex: 1 }}>
-        <Grid width={'96%'} container spacing={2}>
-          <Grid  container pl={4} xs={12}>
+        <Grid container spacing={2}>
+          <Grid  container pl={4} >
             <Typography textAlign={"left"} variant="h4" gutterBottom>
               Dashboard   
             </Typography>
           </Grid>
-          <Grid item xs={12} sm={12} md={12} lg={8}>
+          <Grid item xs={9} sm={12} md={10} lg={8}>
             <Grid container spacing={2}>
               {ordersDetails.map((item, index) => (
-                <Grid item xs={12} sm={10} md={12} lg={3} key={index}>
-                  <Box component={Paper} sx={{ padding: "15px", borderRadius: "15px", textAlign: "left", height: "160px" }}>
+                <Grid item xs={10} sm={10} md={12} lg={3} key={index}>
+                  <Box component={Paper} sx={{width:{xs:'72%',sm:'60%',md:'98%',lg:'99%'}, padding: "15px", borderRadius: "15px", textAlign: "left", height: "160px" }}>
                     <Box sx={{ backgroundColor: item.iconBgColor, width: 35, height: 35, borderRadius: "10px", display: "flex", justifyContent: "center", alignItems: "center", marginBottom: 1 }}>
                       <AssignmentTurnedInIcon sx={{ color: item.iconColor }} />
                     </Box>
                     <Typography variant="body2">{item.title}</Typography>
-                    <Box display="flex" mt={4} justifyContent="space-between" alignItems="center" mt={1}>
+                    <Box display="flex" mt={4} justifyContent="space-between" alignItems="center">
                       <Typography variant="h4" fontWeight="700">{item.count}</Typography>
                       <Box display="flex" alignItems="center">
                         {item.profit ? <ArrowDropUpIcon sx={{ color: "#08c28d" }} /> : <ArrowDropDownIcon sx={{ color: "#b84b49" }} />}
@@ -76,7 +90,7 @@ const Dashboard = () => {
                 </Grid>
               ))}
               <Grid item xs={12} sx={{ display: { md: 'block', lg: 'none' } }}>
-                <Box component = {Paper} sx={{ padding: "15px", borderRadius: "15px", textAlign: "left", height: "160px" }}>
+                <Box component = {Paper} sx={{width:{xs:'60%',sm:'60%',md:'98%',lg:'99%'}, padding: "15px", borderRadius: "15px", textAlign: "left", height: "160px" }}>
                   <Box display={'flex'} justifyContent={'space-between'}>
                     <Box>
                       <Typography variant="body2">Net Profit</Typography>
@@ -93,12 +107,12 @@ const Dashboard = () => {
                 </Box>
               </Grid>
               <Grid item xs={12}>
-                <Box component = {Paper} sx={{  borderRadius: "15px" }}>
+                <Box component = {Paper} sx={{width:{xs:'60%',sm:'60%',md:'98%',lg:'99%'},  borderRadius: "15px" }}>
                   <ActivityChart />
                 </Box>
               </Grid>
               <Grid item xs={12} sx={{ display: { md: 'block', lg: 'none' } }}>
-                <Box component = {Paper} sx={{  borderRadius: "15px", padding: 3, height: "300px" }}>
+                <Box component = {Paper} sx={{width:{xs:'60%',sm:'60%',md:'98%',lg:'99%'},  borderRadius: "15px", padding: 3, height: "300px" }}>
                   <Typography variant="h6" gutterBottom>Goals</Typography>
                   {goalsDetails.map((goal, index) => (
                     <Box display={'flex'} mb={2} justifyContent={'space-between'} gap={2} key={index}>
@@ -116,7 +130,7 @@ const Dashboard = () => {
                 </Box>
               </Grid>
               <Grid item xs={12}>
-                <Box  component={Paper} sx={{height:"400px", borderRadius: "15px", padding: 3 }}>
+                <Box  component={Paper} sx={{width:{xs:'60%',sm:'60%',md:'98%',lg:'99%'},height:"400px", borderRadius: "15px", padding: 3 }}>
                   <Typography textAlign={'left'} variant="h6" gutterBottom>
                     Recent Orders
                   </Typography>
@@ -127,10 +141,10 @@ const Dashboard = () => {
  
           </Grid>
 
-          <Grid item xs={12} sm={12} md={12} lg={4}>
+          <Grid item xs={12} sm={12} md={10} lg={4}>
             <Grid container spacing={2}>
-              <Grid item xs={12} sx={{ display: { md: 'none', lg: 'block' } }}>
-                <Box component = {Paper} sx={{  padding: "15px", borderRadius: "15px", textAlign: "left", height: "160px" }}>
+              <Grid item xs={12} sx={{ display: {xs:"none",sm:'none', md: 'none', lg: 'block' } }}>
+                <Box component = {Paper} sx={{width:{xs:'60%',sm:'60%',md:'98%',lg:'99%'},  padding: "15px", borderRadius: "15px", textAlign: "left", height: "160px" }}>
                   <Box display={'flex'}>
                     <Box>
                       <Typography variant="body2">Net Profit</Typography>
@@ -146,8 +160,8 @@ const Dashboard = () => {
                   </Box>
                 </Box>
               </Grid>
-              <Grid item xs={12} sx={{ display: { md: 'none', lg: 'block' } }}>
-                <Box component = {Paper} sx={{ borderRadius: "15px", padding: 3, height: "300px" }}>
+              <Grid item xs={12} sx={{ display: {xs:"none",sm:'none', md: 'none', lg: 'block' } }}>
+                <Box component = {Paper} sx={{width:{xs:'60%',sm:'60%',md:'98%',lg:'99%'}, borderRadius: "15px", padding: 3, height: "300px" }}>
                   <Typography variant="h6" gutterBottom>Goals</Typography>
                   {goalsDetails.map((goal, index) => (
                     <Box display={'flex'} mb={2} justifyContent={'space-between'} gap={2} key={index}>
@@ -165,13 +179,13 @@ const Dashboard = () => {
                 </Box>
               </Grid>
               <Grid item xs={12}>
-                <Box component = {Paper} sx={{height:"400px",overflowY:"scroll", borderRadius: "15px", padding: 3 }}>
+                <Box component = {Paper} sx={{width:{xs:'45%',sm:'60%',md:'98%',lg:'99%'},height:"400px",overflowY:"scroll", borderRadius: "15px", padding: 3 }}>
                   <Typography variant="h6" textAlign={'left'} gutterBottom>Customer's Feedback</Typography>
                     <List>
                       {feedbacks.map((feedback, index) => (
                         <ListItem key={index} divider>
                           <Box>
-                            <Box display={'flex'}>
+                            <Box display={'flex'} alignItems={'center'}>
                               <Avatar sx={{ mr: 2 }}>{feedback.avatar}</Avatar>
                               <Typography variant="subtitle1" fontWeight="bold">
                                 {feedback.name}

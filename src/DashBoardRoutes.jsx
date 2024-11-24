@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Dashboard from './Container/Dashboard';
+import { Grid } from '@mui/material';
 
 
 export function DemoPageContent({ pathname, navigate }) {
@@ -12,12 +13,22 @@ export function DemoPageContent({ pathname, navigate }) {
     <Box
       sx={{
         py: 4,
+        mx: 4,
         // display: 'flex',
-          overflow:'scroll'
+          overflowY:'scroll'
         // flexDirection: 'column',
       }}
     >
-        {pathname == '/dashboard' ? <Dashboard/>
+        {pathname == '/dashboard' ? 
+        <Dashboard/>
+        // <Grid container >
+        //     <Grid item xs={6}>
+        //       test
+        //     </Grid>
+        //     <Grid item xs={6}>
+        //       test
+        //     </Grid>
+        // </Grid>
             :
         <p>Dashboard content for {pathname}</p>
          } 
