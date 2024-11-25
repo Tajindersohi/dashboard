@@ -19,7 +19,7 @@ export function DemoPageContent({ pathname, navigate }) {
         // flexDirection: 'column',
       }}
     >
-        {pathname == '/dashboard' ? 
+        {pathname == '/dashboard' || pathname == '/' ? 
         <Dashboard/>
         // <Grid container >
         //     <Grid item xs={6}>
